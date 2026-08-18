@@ -60,7 +60,7 @@ function ContactPage() {
       <div className="mb-2 flex justify-center">
         <LottieIcon
           src="/lottie/contact-mail.json"
-          className="size-40 sm:size-52"
+          className="size-40 [filter:hue-rotate(105deg)_saturate(1.05)] sm:size-52"
           fallback={<Mail className="size-16 text-primary/60" />}
         />
       </div>
