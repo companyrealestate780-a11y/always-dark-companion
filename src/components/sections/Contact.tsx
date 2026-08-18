@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -5,7 +6,10 @@ import { toast } from "sonner";
 import { Send } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { LottieIcon } from "@/components/ui/LottieIcon";
 import { useI18n } from "@/lib/i18n";
+
+const loadSuccessLottie = () => import("@/assets/lottie/contact-success.json");
 
 const schema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -17,6 +21,7 @@ type FormValues = z.infer<typeof schema>;
 
 export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) {
   const { tr } = useI18n();
+  const [sent, setSent] = useState(false);
   const {
     register,
     handleSubmit,
@@ -29,6 +34,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
       `${values.message}\n\nFrom: ${values.name}\nEmail: ${values.email}`,
     );
     window.location.href = `mailto:m.ssaid356@gmail.com?subject=${subject}&body=${body}`;
+    setSent(true);
     toast.success(tr("contact.success"));
   };
 
@@ -125,6 +131,12 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
                 </p>
               )}
             </div>
+
+            {sent && (
+              <div className="flex justify-center">
+                <LottieIcon load={loadSuccessLottie} className="size-24" playOnce loop={false} />
+              </div>
+            )}
 
             <button
               type="submit"
