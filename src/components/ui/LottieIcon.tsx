@@ -50,8 +50,9 @@ export function LottieIcon({
     const io = new IntersectionObserver(
       (entries) => {
         const visible = entries.some((e) => e.isIntersecting);
-        if (visible && !mod) {
-          void Promise.all([import("@lottiefiles/dotlottie-react"), load()]).then(
+        if (visible && !loadingRef.current) {
+          loadingRef.current = true;
+          void Promise.all([import("@lottiefiles/dotlottie-react"), loadRef.current()]).then(
             ([lib, json]) => {
               if (!cancelled) setMod({ Player: lib.DotLottieReact, data: json.default });
             },
