@@ -7,8 +7,8 @@ import { Contact } from "@/components/sections/Contact";
 import { LottieIcon } from "@/components/ui/LottieIcon";
 import { pageSeo, pageTitle } from "@/lib/seo";
 import { useI18n } from "@/lib/i18n";
+import mailLottieUrl from "@/assets/lottie/contact-mail.json?url";
 
-const loadMailLottie = () => import("@/assets/lottie/contact-mail.json");
 
 interface ContactChannel {
   Icon: LucideIcon;
@@ -60,7 +60,7 @@ function ContactPage() {
 
       <div className="mb-2 flex justify-center">
         <LottieIcon
-          load={loadMailLottie}
+          src={mailLottieUrl}
           className="size-40 sm:size-52"
           fallback={<Mail className="size-16 text-primary/60" />}
         />

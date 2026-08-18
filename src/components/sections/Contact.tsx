@@ -8,8 +8,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LottieIcon } from "@/components/ui/LottieIcon";
 import { useI18n } from "@/lib/i18n";
+import successLottieUrl from "@/assets/lottie/contact-success.json?url";
 
-const loadSuccessLottie = () => import("@/assets/lottie/contact-success.json");
+
 
 const schema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -134,7 +135,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
 
             {sent && (
               <div className="flex justify-center">
-                <LottieIcon load={loadSuccessLottie} className="size-24" playOnce loop={false} />
+                <LottieIcon src={successLottieUrl} className="size-24" playOnce loop={false} />
               </div>
             )}
 
