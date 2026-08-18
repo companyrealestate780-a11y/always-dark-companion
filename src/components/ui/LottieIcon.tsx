@@ -33,10 +33,13 @@ export function LottieIcon({
   const hostRef = useRef<HTMLDivElement | null>(null);
   const playerRef = useRef<DotLottie | null>(null);
   const playedRef = useRef(false);
+  const loadRef = useRef(load);
+  loadRef.current = load;
   const [mod, setMod] = useState<{
     Player: typeof import("@lottiefiles/dotlottie-react").DotLottieReact;
     data: unknown;
   } | null>(null);
+  const loadingRef = useRef(false);
 
   useEffect(() => {
     const host = hostRef.current;
