@@ -4,8 +4,11 @@ import { PageSkeleton } from "@/components/ui/Skeletons";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Contact } from "@/components/sections/Contact";
+import { LottieIcon } from "@/components/ui/LottieIcon";
 import { pageSeo, pageTitle } from "@/lib/seo";
 import { useI18n } from "@/lib/i18n";
+
+const loadMailLottie = () => import("@/assets/lottie/contact-mail.json");
 
 interface ContactChannel {
   Icon: LucideIcon;
