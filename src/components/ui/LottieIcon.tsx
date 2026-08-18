@@ -84,7 +84,7 @@ export function LottieIcon({
       io.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [load, mod, playOnce]);
+  }, [playOnce]);
 
   return (
     <div ref={hostRef} className={className} aria-hidden="true">
