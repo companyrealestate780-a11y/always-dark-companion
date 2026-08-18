@@ -37,7 +37,7 @@ export function LottieIcon({
   loadRef.current = load;
   const [mod, setMod] = useState<{
     Player: typeof import("@lottiefiles/dotlottie-react").DotLottieReact;
-    data: unknown;
+    data: string;
   } | null>(null);
   const loadingRef = useRef(false);
 
@@ -54,7 +54,8 @@ export function LottieIcon({
           loadingRef.current = true;
           void Promise.all([import("@lottiefiles/dotlottie-react"), loadRef.current()]).then(
             ([lib, json]) => {
-              if (!cancelled) setMod({ Player: lib.DotLottieReact, data: json.default });
+              if (!cancelled)
+                setMod({ Player: lib.DotLottieReact, data: JSON.stringify(json.default) });
             },
           );
         }
@@ -90,7 +91,7 @@ export function LottieIcon({
     <div ref={hostRef} className={className} aria-hidden="true">
       {mod ? (
         <mod.Player
-          data={mod.data as NonNullable<React.ComponentProps<typeof mod.Player>["data"]>}
+          data={mod.data as string}
           loop={playOnce ? false : loop}
           autoplay
           speed={speed}
