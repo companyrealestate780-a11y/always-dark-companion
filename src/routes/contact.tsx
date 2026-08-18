@@ -58,6 +58,15 @@ function ContactPage() {
         description={tr("contact.page.desc")}
       />
 
+      <div className="mb-2 flex justify-center">
+        <LottieIcon
+          load={loadMailLottie}
+          className="size-40 sm:size-52"
+          fallback={<Mail className="size-16 text-primary/60" />}
+        />
+      </div>
+
+
       <section className="mb-8 py-6">
         <div className="grid gap-6 sm:grid-cols-3">
           {CHANNELS.map(({ Icon, labelKey, value, valueKey, href }) => (
