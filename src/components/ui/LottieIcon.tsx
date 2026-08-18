@@ -86,7 +86,7 @@ export function LottieIcon({
     <div ref={hostRef} className={className} aria-hidden="true">
       {mod ? (
         <mod.Player
-          data={mod.data as object}
+          data={mod.data as React.ComponentProps<typeof mod.Player>["data"]}
           loop={playOnce ? false : loop}
           autoplay
           speed={speed}
