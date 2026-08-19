@@ -30,12 +30,15 @@ function ExperiencePage() {
 
       <ExperiencePreview />
 
-      <CtaRow>
-        <CtaLink to="/projects" variant="secondary">
-          {tr("skills.page.projectsCta")}
-        </CtaLink>
-        <CtaLink to="/contact">{tr("about.page.contactCta")}</CtaLink>
-      </CtaRow>
+      <LottieAside src="/lottie/experience-side.json" className="mt-10">
+        <CtaRow>
+          <CtaLink to="/projects" variant="secondary">
+            {tr("skills.page.projectsCta")}
+          </CtaLink>
+          <CtaLink to="/contact">{tr("about.page.contactCta")}</CtaLink>
+        </CtaRow>
+      </LottieAside>
+
     </PageShell>
   );
 }
