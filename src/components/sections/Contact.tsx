@@ -149,6 +149,14 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
             </button>
           </form>
         </Reveal>
+
+        <Reveal>
+          <LottieIcon
+            src="/lottie/contact-side.lottie"
+            className="mx-auto aspect-square w-full max-w-sm"
+          />
+        </Reveal>
+        </div>
       </div>
     </section>
   );
