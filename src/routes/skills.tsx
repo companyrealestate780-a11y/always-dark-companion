@@ -78,12 +78,15 @@ function SkillsPage() {
           })}
         </div>
 
-        <CtaRow>
-          <CtaLink to="/projects" variant="secondary">
-            {tr("skills.page.projectsCta")}
-          </CtaLink>
-          <CtaLink to="/contact">{tr("skills.page.contactCta")}</CtaLink>
-        </CtaRow>
+        <LottieAside src="/lottie/skills-side.json" className="mt-10">
+          <CtaRow>
+            <CtaLink to="/projects" variant="secondary">
+              {tr("skills.page.projectsCta")}
+            </CtaLink>
+            <CtaLink to="/contact">{tr("skills.page.contactCta")}</CtaLink>
+          </CtaRow>
+        </LottieAside>
+
       </section>
     </PageShell>
   );
