@@ -7,6 +7,7 @@ import { Send } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LottieIcon } from "@/components/ui/LottieIcon";
+import { LottieAside } from "@/components/ui/LottieAside";
 import { useI18n } from "@/lib/i18n";
 
 
@@ -49,7 +50,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
           <p className="mb-10 text-center text-foreground/70">{tr("contact.subtitle")}</p>
         </Reveal>
 
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <LottieAside src="/lottie/contact-side.json">
         <Reveal>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -150,13 +151,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
           </form>
         </Reveal>
 
-        <Reveal>
-          <LottieIcon
-            src="/lottie/contact-side.lottie"
-            className="mx-auto aspect-square w-full max-w-sm"
-          />
-        </Reveal>
-        </div>
+        </LottieAside>
       </div>
     </section>
   );
