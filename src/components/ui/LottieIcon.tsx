@@ -13,15 +13,15 @@ import type { DotLottie } from "@lottiefiles/dotlottie-react";
  * - SSR-safe: nothing loads during render, so there is no hydration mismatch.
  */
 export function LottieIcon({
-  load,
+  src,
   loop = true,
   className,
   fallback = null,
   speed = 1,
   playOnce = false,
 }: {
-  /** Dynamic import of the animation JSON, e.g. `() => import("@/assets/lottie/x.json")` */
-  load: () => Promise<{ default: unknown }>;
+  /** URL of the animation JSON/.lottie, e.g. `import url from "@/assets/lottie/x.json?url"` */
+  src: string;
   loop?: boolean;
   className?: string;
   /** Static visual shown before load, and permanently when motion is reduced. */
@@ -33,10 +33,10 @@ export function LottieIcon({
   const hostRef = useRef<HTMLDivElement | null>(null);
   const playerRef = useRef<DotLottie | null>(null);
   const playedRef = useRef(false);
-  const [mod, setMod] = useState<{
-    Player: typeof import("@lottiefiles/dotlottie-react").DotLottieReact;
-    data: unknown;
-  } | null>(null);
+  const [Player, setPlayer] = useState<
+    typeof import("@lottiefiles/dotlottie-react").DotLottieReact | null
+  >(null);
+  const loadingRef = useRef(false);
 
   useEffect(() => {
     const host = hostRef.current;
@@ -47,12 +47,11 @@ export function LottieIcon({
     const io = new IntersectionObserver(
       (entries) => {
         const visible = entries.some((e) => e.isIntersecting);
-        if (visible && !mod) {
-          void Promise.all([import("@lottiefiles/dotlottie-react"), load()]).then(
-            ([lib, json]) => {
-              if (!cancelled) setMod({ Player: lib.DotLottieReact, data: json.default });
-            },
-          );
+        if (visible && !loadingRef.current) {
+          loadingRef.current = true;
+          void import("@lottiefiles/dotlottie-react").then((lib) => {
+            if (!cancelled) setPlayer(() => lib.DotLottieReact);
+          });
         }
         const p = playerRef.current;
         if (!p) return;
@@ -80,13 +79,13 @@ export function LottieIcon({
       io.disconnect();
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, [load, mod, playOnce]);
+  }, [playOnce]);
 
   return (
     <div ref={hostRef} className={className} aria-hidden="true">
-      {mod ? (
-        <mod.Player
-          data={mod.data as NonNullable<React.ComponentProps<typeof mod.Player>["data"]>}
+      {Player ? (
+        <Player
+          src={src}
           loop={playOnce ? false : loop}
           autoplay
           speed={speed}

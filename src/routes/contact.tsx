@@ -4,8 +4,10 @@ import { PageSkeleton } from "@/components/ui/Skeletons";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { Contact } from "@/components/sections/Contact";
+import { LottieIcon } from "@/components/ui/LottieIcon";
 import { pageSeo, pageTitle } from "@/lib/seo";
 import { useI18n } from "@/lib/i18n";
+
 
 interface ContactChannel {
   Icon: LucideIcon;
@@ -54,6 +56,15 @@ function ContactPage() {
         title={tr("contact.page.title")}
         description={tr("contact.page.desc")}
       />
+
+      <div className="mb-2 flex justify-center">
+        <LottieIcon
+          src="/lottie/contact-mail.json"
+          className="size-40 sm:size-52"
+          fallback={<Mail className="size-16 text-primary/60" />}
+        />
+      </div>
+
 
       <section className="mb-8 py-6">
         <div className="grid gap-6 sm:grid-cols-3">

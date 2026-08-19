@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -5,7 +6,10 @@ import { toast } from "sonner";
 import { Send } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { LottieIcon } from "@/components/ui/LottieIcon";
 import { useI18n } from "@/lib/i18n";
+
+
 
 const schema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -17,6 +21,7 @@ type FormValues = z.infer<typeof schema>;
 
 export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) {
   const { tr } = useI18n();
+  const [sent, setSent] = useState(false);
   const {
     register,
     handleSubmit,
@@ -29,6 +34,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
       `${values.message}\n\nFrom: ${values.name}\nEmail: ${values.email}`,
     );
     window.location.href = `mailto:m.ssaid356@gmail.com?subject=${subject}&body=${body}`;
+    setSent(true);
     toast.success(tr("contact.success"));
   };
 
@@ -37,12 +43,13 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
 
   return (
     <section id="contact" className="scroll-mt-24 py-28">
-      <div className="mx-auto max-w-2xl px-5">
+      <div className="mx-auto max-w-5xl px-5">
         {showHeading && <SectionHeading title={tr("contact.title")} />}
         <Reveal>
           <p className="mb-10 text-center text-foreground/70">{tr("contact.subtitle")}</p>
         </Reveal>
 
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
         <Reveal>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -126,6 +133,12 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
               )}
             </div>
 
+            {sent && (
+              <div className="flex justify-center">
+                <LottieIcon src="/lottie/contact-success.json" className="size-24" playOnce loop={false} />
+              </div>
+            )}
+
             <button
               type="submit"
               disabled={isSubmitting}
@@ -136,6 +149,14 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
             </button>
           </form>
         </Reveal>
+
+        <Reveal>
+          <LottieIcon
+            src="/lottie/contact-side.lottie"
+            className="mx-auto aspect-square w-full max-w-sm"
+          />
+        </Reveal>
+        </div>
       </div>
     </section>
   );
