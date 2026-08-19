@@ -4,6 +4,7 @@ import { PageSkeleton } from "@/components/ui/Skeletons";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { CtaLink, CtaRow } from "@/components/ui/CtaLink";
+import { LottieAside } from "@/components/ui/LottieAside";
 import { skillGroups, type SkillIcon } from "@/data";
 import { pageSeo, pageTitle } from "@/lib/seo";
 import { useI18n } from "@/lib/i18n";
@@ -78,12 +79,15 @@ function SkillsPage() {
           })}
         </div>
 
-        <CtaRow>
-          <CtaLink to="/projects" variant="secondary">
-            {tr("skills.page.projectsCta")}
-          </CtaLink>
-          <CtaLink to="/contact">{tr("skills.page.contactCta")}</CtaLink>
-        </CtaRow>
+        <LottieAside src="/lottie/skills-side.json" className="mt-10">
+          <CtaRow>
+            <CtaLink to="/projects" variant="secondary">
+              {tr("skills.page.projectsCta")}
+            </CtaLink>
+            <CtaLink to="/contact">{tr("skills.page.contactCta")}</CtaLink>
+          </CtaRow>
+        </LottieAside>
+
       </section>
     </PageShell>
   );
