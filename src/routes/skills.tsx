@@ -79,7 +79,7 @@ function SkillsPage() {
           })}
         </div>
 
-        <LottieAside src="/lottie/skills-side.json" className="mt-10">
+        <LottieAside src="/lottie/skills-side.json" className="mt-10" mediaClassName="[filter:hue-rotate(105deg)_saturate(1.05)]">
           <CtaRow>
             <CtaLink to="/projects" variant="secondary">
               {tr("skills.page.projectsCta")}
