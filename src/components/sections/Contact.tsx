@@ -7,6 +7,7 @@ import { Send } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LottieIcon } from "@/components/ui/LottieIcon";
+import { LottieAside } from "@/components/ui/LottieAside";
 import { useI18n } from "@/lib/i18n";
 
 
