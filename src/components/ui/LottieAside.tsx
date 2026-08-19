@@ -11,18 +11,21 @@ export function LottieAside({
   children,
   className = "",
   size = "max-w-sm",
+  mediaClassName = "",
 }: {
   src: string;
   children: ReactNode;
   className?: string;
   /** Tailwind max-width utility for the animation column. */
   size?: string;
+  /** Extra classes (e.g. a hue filter) applied to the animation itself. */
+  mediaClassName?: string;
 }) {
   return (
     <div className={`grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] ${className}`}>
       <div className="min-w-0">{children}</div>
       <div aria-hidden="true" className="hidden sm:block">
-        <LottieIcon src={src} className={`mx-auto aspect-square w-full ${size}`} />
+        <LottieIcon src={src} className={`mx-auto aspect-square w-full ${size} ${mediaClassName}`} />
       </div>
     </div>
   );
