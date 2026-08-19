@@ -50,7 +50,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
           <p className="mb-10 text-center text-foreground/70">{tr("contact.subtitle")}</p>
         </Reveal>
 
-        <LottieAside src="/lottie/contact-side.lottie">
+        <LottieAside src="/lottie/contact-side.json">
         <Reveal>
           <form
             onSubmit={handleSubmit(onSubmit)}
