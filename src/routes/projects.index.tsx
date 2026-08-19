@@ -110,18 +110,21 @@ function ProjectsPage() {
       <section className="pb-16 pt-24 md:pb-20 md:pt-28">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
-            <header className="mb-8 max-w-2xl text-center md:text-start">
-              <span className="rounded-xl bg-foreground/10 px-3 py-1 font-sans text-[11px] font-black tracking-[0.25em] text-primary uppercase border border-border inline-block mb-2">
-                {tr("projects.index.eyebrow")}
-              </span>
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight uppercase">
-                {tr("projects.index.title")}
-              </h1>
-              <p className="mt-2 font-sans text-sm text-foreground/90">
-                {tr("projects.index.desc")}
-              </p>
-            </header>
+            <LottieAside src="/lottie/projects-side.json" className="mb-8">
+              <header className="max-w-2xl text-center md:text-start">
+                <span className="rounded-xl bg-foreground/10 px-3 py-1 font-sans text-[11px] font-black tracking-[0.25em] text-primary uppercase border border-border inline-block mb-2">
+                  {tr("projects.index.eyebrow")}
+                </span>
+                <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight uppercase">
+                  {tr("projects.index.title")}
+                </h1>
+                <p className="mt-2 font-sans text-sm text-foreground/90">
+                  {tr("projects.index.desc")}
+                </p>
+              </header>
+            </LottieAside>
           </Reveal>
+
 
           {/* Toolbar: search + sort + view mode */}
           <div
