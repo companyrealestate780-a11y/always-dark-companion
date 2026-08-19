@@ -49,7 +49,7 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
           <p className="mb-10 text-center text-foreground/70">{tr("contact.subtitle")}</p>
         </Reveal>
 
-        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
+        <LottieAside src="/lottie/contact-side.lottie">
         <Reveal>
           <form
             onSubmit={handleSubmit(onSubmit)}
