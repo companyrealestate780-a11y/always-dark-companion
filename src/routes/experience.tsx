@@ -3,6 +3,7 @@ import { PageSkeleton } from "@/components/ui/Skeletons";
 import { PageShell } from "@/components/layout/PageShell";
 import { PageIntro } from "@/components/ui/PageIntro";
 import { CtaLink, CtaRow } from "@/components/ui/CtaLink";
+import { LottieAside } from "@/components/ui/LottieAside";
 import { ExperiencePreview } from "@/components/sections/home/ExperiencePreview";
 import { pageSeo, pageTitle } from "@/lib/seo";
 import { useI18n } from "@/lib/i18n";
