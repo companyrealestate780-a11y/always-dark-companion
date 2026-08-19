@@ -43,12 +43,13 @@ export function Contact({ showHeading = true }: { showHeading?: boolean } = {}) 
 
   return (
     <section id="contact" className="scroll-mt-24 py-28">
-      <div className="mx-auto max-w-2xl px-5">
+      <div className="mx-auto max-w-5xl px-5">
         {showHeading && <SectionHeading title={tr("contact.title")} />}
         <Reveal>
           <p className="mb-10 text-center text-foreground/70">{tr("contact.subtitle")}</p>
         </Reveal>
 
+        <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]">
         <Reveal>
           <form
             onSubmit={handleSubmit(onSubmit)}
