@@ -111,7 +111,7 @@ function ProjectsPage() {
       <section className="pb-16 pt-24 md:pb-20 md:pt-28">
         <div className="mx-auto max-w-6xl px-5">
           <Reveal>
-            <LottieAside src="/lottie/projects-side.json" className="mb-8">
+            <LottieAside src="/lottie/projects-side.json" className="mb-8" size="max-w-[240px]">
               <header className="max-w-2xl text-center md:text-start">
                 <span className="rounded-xl bg-foreground/10 px-3 py-1 font-sans text-[11px] font-black tracking-[0.25em] text-primary uppercase border border-border inline-block mb-2">
                   {tr("projects.index.eyebrow")}
