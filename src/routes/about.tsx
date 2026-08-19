@@ -40,25 +40,28 @@ function AboutPage() {
       />
 
       <section className="py-6">
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {STATS.map((stat) => (
-            <div
-              key={stat.key}
-              className="rounded-2xl border border-border bg-card p-6 text-center shadow-lg"
-            >
+        <LottieAside src="/lottie/about-side.json" size="max-w-md">
+          <div className="grid grid-cols-2 gap-4">
+            {STATS.map((stat) => (
               <div
-                dir="ltr"
-                className="font-['Oswald',sans-serif] text-3xl font-bold text-card-foreground sm:text-4xl"
+                key={stat.key}
+                className="rounded-2xl border border-border bg-card p-6 text-center shadow-lg"
               >
-                {stat.value}
+                <div
+                  dir="ltr"
+                  className="font-['Oswald',sans-serif] text-3xl font-bold text-card-foreground sm:text-4xl"
+                >
+                  {stat.value}
+                </div>
+                <div className="mt-1 font-sans text-[11px] font-black uppercase tracking-wider text-card-foreground/80">
+                  {tr(stat.key)}
+                </div>
               </div>
-              <div className="mt-1 font-sans text-[11px] font-black uppercase tracking-wider text-card-foreground/80">
-                {tr(stat.key)}
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </LottieAside>
       </section>
+
 
       <section className="py-12">
         <h2 className="mb-8 text-center font-['Oswald',sans-serif] text-3xl font-bold uppercase tracking-tight text-foreground sm:text-4xl">
