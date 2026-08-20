@@ -5,7 +5,7 @@ import { AboutPreview } from "@/components/sections/home/AboutPreview";
 import { SkillsPreview } from "@/components/sections/home/SkillsPreview";
 import { Projects } from "@/components/sections/Projects";
 import { ExperiencePreview } from "@/components/sections/home/ExperiencePreview";
-import { CredentialsCarousel } from "@/components/credentials/CredentialsCarousel";
+import { CredentialsCarouselLazy } from "@/components/credentials/CredentialsCarouselLazy";
 import { ContactCta } from "@/components/sections/home/ContactCta";
 import { LazyIsland } from "@/components/ui/LazyIsland";
 import { pageSeo } from "@/lib/seo";
@@ -70,7 +70,7 @@ function Index() {
         <AboutPreview />
       </div>
       <LazyIsland className="defer-paint">
-        <CredentialsCarousel />
+        <CredentialsCarouselLazy />
       </LazyIsland>
       <LazyIsland className="defer-paint">
         <ContactCta />
